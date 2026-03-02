@@ -4,20 +4,18 @@ export const CmsContext = createContext();
 
 export const CmsProvider = ({ children }) => {
   const getInitialData = () => {
-    // Cambiamos a V3 para forzar la recarga de las nuevas imágenes por defecto
-    const saved = localStorage.getItem('umssDataV3');
+    const saved = localStorage.getItem('umssDataV4');
     if (saved) return JSON.parse(saved);
     
     return {
       headerTitle: "Universidad Mayor de San Simón",
       heroTitle: "Portal de Información Académica",
       heroSubtitle: "Mantente al tanto de las convocatorias, noticias y eventos de nuestra casa superior de estudios.",
-      // Aquí enlazamos las imágenes que pusiste en la carpeta public
       images: [
-        "/fondo-hero.jpg", // Índice 0: Fondo del Banner principal
-        "/noticia1.jpg",   // Índice 1: Noticia PTAG
-        "/noticia2.jpg",   // Índice 2: Noticia Libro
-        "/noticia3.jpg"    // Índice 3: Noticia Feria
+        { url: "/fondo-hero.jpg", caption: "" },
+        { url: "/noticia1.jpg", caption: "Convocatoria a Charlas Informativas PTAG - Versión XLVII." },
+        { url: "/noticia2.jpg", caption: "Presentación del libro: El arquero de la iconografía Tiwanaku en los valles de Cochabamba." },
+        { url: "/noticia3.jpg", caption: "Feria de Comercio Justo y Alimentación Saludable - Viernes 13 de febrero." }
       ], 
       infoBlocks: [
         { title: "¿QUÉ ES ESTE PORTAL?", content: "Un espacio centralizado para la difusión de información académica y administrativa de la UMSS." },
@@ -30,7 +28,7 @@ export const CmsProvider = ({ children }) => {
   const [siteData, setSiteData] = useState(getInitialData);
 
   useEffect(() => {
-    localStorage.setItem('umssDataV3', JSON.stringify(siteData));
+    localStorage.setItem('umssDataV4', JSON.stringify(siteData));
   }, [siteData]);
 
   return (
