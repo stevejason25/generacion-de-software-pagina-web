@@ -28,26 +28,32 @@ const Home = () => {
       </header>
 
       <main className="main-container">
-        <h2 className="section-title">Información en Resumen</h2>
-        <div className="info-grid">
-          {siteData.infoBlocks.map((block, index) => (
-            <div key={index} className="info-card">
-              <h3>{block.title}</h3>
-              <p>{block.content}</p>
-            </div>
-          ))}
-        </div>
-
+        
+        {/* 1. APARTADO DE NOTICIAS (Ahora está arriba) */}
         {(siteData.images && siteData.images.length > 1) && (
-          <div className="extra-gallery">
-            <h2 className="section-title">Galería de Imágenes</h2>
-            <div className="gallery-grid">
+          <div className="extra-gallery" style={{ marginBottom: '60px' }}>
+            <h2 className="section-title">Apartado de Noticias</h2>
+            <div className="news-list">
               {siteData.images.slice(1).map((img, index) => (
-                <img key={index} src={img} alt={`Galería ${index}`} />
+                <img key={index} src={img} alt={`Noticia ${index}`} className="news-image" />
               ))}
             </div>
           </div>
         )}
+
+        {/* 2. INFORMACIÓN EN RESUMEN (Ahora está al final) */}
+        <div>
+          <h2 className="section-title">Información en Resumen</h2>
+          <div className="info-grid">
+            {siteData.infoBlocks.map((block, index) => (
+              <div key={index} className="info-card">
+                <h3>{block.title}</h3>
+                <p>{block.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </main>
     </div>
   );
