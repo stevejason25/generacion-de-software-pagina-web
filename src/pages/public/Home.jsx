@@ -23,13 +23,13 @@ const Home = () => {
         <div className="hero-content">
           <h1>{siteData.heroTitle}</h1>
           <p>{siteData.heroSubtitle}</p>
-          <button className="btn btn-red">{siteData.heroButtonText}</button>
+          {/* El botón "Ver Convocatorias" fue eliminado de aquí */}
         </div>
       </header>
 
       <main className="main-container">
         
-        {/* 1. APARTADO DE NOTICIAS (Ahora está arriba) */}
+        {/* APARTADO DE NOTICIAS */}
         {(siteData.images && siteData.images.length > 1) && (
           <div className="extra-gallery" style={{ marginBottom: '60px' }}>
             <h2 className="section-title">Apartado de Noticias</h2>
@@ -41,7 +41,7 @@ const Home = () => {
           </div>
         )}
 
-        {/* 2. INFORMACIÓN EN RESUMEN (Ahora está al final) */}
+        {/* INFORMACIÓN EN RESUMEN */}
         <div>
           <h2 className="section-title">Información en Resumen</h2>
           <div className="info-grid">
