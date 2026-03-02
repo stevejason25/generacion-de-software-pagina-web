@@ -1,13 +1,10 @@
 ﻿import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import App from './App.jsx' // Asegúrate de que tu App se llame App.jsx
 import './styles/main.css'
-import { CmsProvider } from './context/CmsContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CmsProvider>
-      <App />
-    </CmsProvider>
+    <App />
   </React.StrictMode>,
 )
