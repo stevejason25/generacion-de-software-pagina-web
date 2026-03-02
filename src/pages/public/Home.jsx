@@ -18,7 +18,7 @@ const Home = () => {
           ☰
         </div>
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <Link to="/">Inicio</Link>
+          {/* Aquí quitamos el botón de Inicio */}
           <Link to="/admin" className="btn-login">Login</Link>
         </div>
       </nav>
